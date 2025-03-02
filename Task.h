@@ -8,6 +8,8 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QFile>
+#include <QMessageBox>
+#include <TaskForm.h>
 
 class Task : public QWidget
 {
@@ -15,31 +17,25 @@ class Task : public QWidget
 public:
     explicit Task(QWidget *parent = nullptr);
 
-private slots:
-    /**
-     * @brief onAddBtn_clicked
-     */
-    void onAddBtn_clicked();
-
-    /**
-     * @brief onDeleteBtn_clicked
-     */
-    void onDeleteBtn_clicked();
-
-    /**
-     * @brief onSaveBtn_clicked
-     */
-    void onSaveBtn_clicked();
-
-    /**
-     * @brief onLoadBtn_clicked
-     */
-    void onLoadBtn_clicked();
+    void addTask(const QString &title, const QString &description, const QString &status);
+    void saveTaskFile();
+    void openTaskFile();
 
 private:
-    QVBoxLayout *_layoutVBox;
-    QPushButton *_addBtn, *_deleteBtn,*_loadBtn, *_saveBtn;
-    QTableWidget *_taskTable;
-    QJsonArray *_tasksJsonArray;
-    QString _fileNane;
+    void initialize();
+    void manageLayouts();
+    void manageConnects();
+
+private slots:
+    void onUpdateBtn_clicked();
+    void onDeleteBtn_clicked();
+
+
+private:
+    QVBoxLayout     *_layoutVBox;
+    QPushButton     *_updateBtn, *_deleteBtn;
+    QTableWidget    *_taskTable;
+    QJsonArray      *_tasksJsonArray;
+    TaskForm        *_updateForm;
+    QString         _fileNane;
 };

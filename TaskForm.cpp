@@ -77,6 +77,21 @@ void TaskForm::onTitleLine_changed()
     }
 }
 
+void TaskForm::setButtonGroupStatus(QButtonGroup *newButtonGroupStatus)
+{
+    _buttonGroupStatus = newButtonGroupStatus;
+}
+
+void TaskForm::setDescriptionText(QTextEdit *newDescriptionText)
+{
+    _descriptionText = newDescriptionText;
+}
+
+void TaskForm::setTitleLine(QLineEdit *newTitleLine)
+{
+    _titleLine = newTitleLine;
+}
+
 QString TaskForm::dataTitle() const
 {
     return _dataTitle;

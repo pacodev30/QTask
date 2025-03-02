@@ -54,14 +54,20 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::onNewAction_triggered()
 {
     _taskForm->exec();
+
+    _task->addTask(
+        _taskForm->dataTitle(),
+        _taskForm->dataDescription(),
+        _taskForm->dataStatus()
+    );
 }
 
 void MainWindow::onOpenAction_triggered()
 {
-    qDebug() << "Open tasks";
+    _task->openTaskFile();
 }
 
 void MainWindow::onSaveAction_triggered()
 {
-    qDebug() << "Save tasks";
+    _task->saveTaskFile();
 }
