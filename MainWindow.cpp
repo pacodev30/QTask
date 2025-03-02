@@ -5,6 +5,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     // INIT
     _task = new Task(this);
+    _taskForm = new TaskForm(this);
     setWindowIcon(QIcon(":/img/logos/logo.png"));
     setWindowTitle(tr("QTask"));
 
@@ -52,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::onNewAction_triggered()
 {
-    qDebug() << "New task";
+    _taskForm->exec();
 }
 
 void MainWindow::onOpenAction_triggered()

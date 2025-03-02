@@ -16,9 +16,24 @@ public:
     explicit Task(QWidget *parent = nullptr);
 
 private slots:
+    /**
+     * @brief onAddBtn_clicked
+     */
     void onAddBtn_clicked();
+
+    /**
+     * @brief onDeleteBtn_clicked
+     */
     void onDeleteBtn_clicked();
+
+    /**
+     * @brief onSaveBtn_clicked
+     */
     void onSaveBtn_clicked();
+
+    /**
+     * @brief onLoadBtn_clicked
+     */
     void onLoadBtn_clicked();
 
 private:

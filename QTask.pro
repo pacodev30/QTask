@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     MainWindow.cpp \
     Task.cpp \
+    TaskForm.cpp \
     main.cpp
 
 HEADERS += \
     MainWindow.h \
-    Task.h
+    Task.h \
+    TaskForm.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
