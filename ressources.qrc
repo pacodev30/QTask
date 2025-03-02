@@ -10,5 +10,6 @@
         <file>logos/newFolder.png</file>
         <file>logos/openFile.png</file>
         <file>logos/quit.png</file>
+        <file>logos/logo.png</file>
     </qresource>
 </RCC>

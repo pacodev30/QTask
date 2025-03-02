@@ -1,26 +1,30 @@
 #pragma once
 
 #include <QMainWindow>
-#include <QMdiArea>
 #include <Task.h>
 #include <QMenuBar>
-#include <QAction>
+#include <QToolBar>
+#include <QMdiArea>
+#include <QMdiSubWindow>
+#include <QApplication>
+
+
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(QWidget *parent = nullptr);
 
 private slots:
-    void onNewBtn_triggered();
+    void onNewAction_triggered();
+    void onOpenAction_triggered();
+    void onSaveAction_triggered();
 
 private:
-    void addTask();
-
-private:
-    QAction *_newAction, *_quitAction;
     QMdiArea *_centralArea;
+    Task *_task;
+    QMenu *_fileMenu;
+    QToolBar *_toolBar;
+    QAction *_newAction, *_deleteAction, *_openAction, *_saveAction, *_quitAction;
 };

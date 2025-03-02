@@ -7,13 +7,17 @@ Task::Task(QWidget *parent)
     : QWidget(parent)
 {
     // INIT
-    setWindowTitle("TaskManager");
+    setWindowTitle("Tasks");
     _tasksJsonArray = new QJsonArray();
     _fileNane = "tasks.json";
 
     _taskTable = new QTableWidget(this);
-    _taskTable->setFixedWidth(480);
+        _taskTable->setFixedWidth(640);
         _taskTable->setColumnCount(3);
+            _taskTable->setColumnWidth(0, 150);
+            _taskTable->setColumnWidth(1, 300);
+            _taskTable->setColumnWidth(2, 150);
+
         _taskTable->setHorizontalHeaderLabels({tr("Title"), tr("Description"), tr("Status")});
 
     _addBtn = new QPushButton(tr("Add task"), this);
