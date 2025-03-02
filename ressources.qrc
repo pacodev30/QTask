@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>logos/delete.png</file>
+        <file>logos/download.png</file>
+        <file>logos/home.png</file>
+        <file>logos/like.png</file>
+        <file>logos/login.png</file>
+        <file>logos/logout.png</file>
+        <file>logos/newFile.png</file>
+        <file>logos/newFolder.png</file>
+        <file>logos/openFile.png</file>
+        <file>logos/quit.png</file>
+    </qresource>
+</RCC>
