@@ -33,6 +33,10 @@ public:
 
 
 private:
+    void initialize();
+    void manageLayouts();
+    void manageConnects();
+
     QWidget* addQRadios(QStringList &values);
 
 private slots:

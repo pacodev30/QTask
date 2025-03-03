@@ -24,14 +24,19 @@ private slots:
     void onSaveAction_triggered();
 
 private:
-    void init();
+    void initialize();
     void manageLayout();
     void manageAction();
     void manageMenu();
     void manageToolbar();
     void manageConnect();
 
-    void newTask(const QString &title, const QString &description, const QString &status,  QTableWidget *taskTable);    
+    void newTask(
+        const QString &title,
+        const QString &description,
+        const QString &status,
+        QTableWidget *taskTable
+    );
     void openJsonfile(const QString &fileName, QTableWidget *taskTable);
     void saveJsonFile(const QString &fileName, QTableWidget *taskTable);
 

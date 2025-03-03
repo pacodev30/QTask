@@ -1,10 +1,11 @@
 #include "MainWindow.h"
 
+#include <QFileDialog>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow{parent}
 {
-    // INIT
-    init();
+    initialize();
     manageLayout();
     manageAction();
     manageMenu();
@@ -12,7 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
     manageConnect();
 }
 
-void MainWindow::init()
+// MANAGE
+void MainWindow::initialize()
 {
     _task = new Task(this);
     _taskForm = new TaskForm(this);
@@ -71,6 +73,7 @@ void MainWindow::manageToolbar()
         _toolBar->addAction(_quitAction);
 }
 
+// EVENTS
 void MainWindow::onNewAction_triggered()
 {
     _taskForm->exec();
@@ -85,15 +88,19 @@ void MainWindow::onNewAction_triggered()
 
 void MainWindow::onOpenAction_triggered()
 {
-    openJsonfile("tasks.json", _task->taskTable());
-
+    QString file = QFileDialog::getOpenFileName(this, tr("Open JSON file"), QString(), "JSON file (*.json)");
+    if(!file.isEmpty())
+        openJsonfile(file, _task->taskTable());
 }
 
 void MainWindow::onSaveAction_triggered()
 {
-    saveJsonFile("tasks.json", _task->taskTable());
+    QString file = QFileDialog::getSaveFileName(this, "Save JSON file", QDir::homePath() + "/tasks.json", "JSON file (*.json)");
+
+    saveJsonFile(file, _task->taskTable());
 }
 
+// FUNCTIONS
 void MainWindow::newTask(const QString &title, const QString &description, const QString &status,  QTableWidget *taskTable)
 {
     int row = taskTable->rowCount();

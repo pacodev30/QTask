@@ -11,6 +11,7 @@ Task::Task(QWidget *parent)
     manageConnects();
 }
 
+// MANAGE
 void Task::initialize()
 {
     setWindowTitle("Tasks");
@@ -43,6 +44,7 @@ void Task::manageConnects()
     connect(_deleteBtn, SIGNAL(clicked(bool)), this, SLOT(onDeleteBtn_clicked()));
 }
 
+// EVENTS
 void Task::onUpdateBtn_clicked()
 {
     int row = _taskTable->currentRow();
@@ -89,6 +91,7 @@ void Task::onDeleteBtn_clicked()
 
 }
 
+// GETTERS AND SETTERS
 QTableWidget *Task::taskTable() const
 {
     return _taskTable;
