@@ -17,9 +17,8 @@ class Task : public QWidget
 public:
     explicit Task(QWidget *parent = nullptr);
 
-    void addTask(const QString &title, const QString &description, const QString &status);
-    void saveTaskFile();
-    void openTaskFile();
+    QTableWidget *taskTable() const;
+    void setTaskTable(QTableWidget *newTaskTable);
 
 private:
     void initialize();
@@ -30,12 +29,11 @@ private slots:
     void onUpdateBtn_clicked();
     void onDeleteBtn_clicked();
 
-
 private:
     QVBoxLayout     *_layoutVBox;
     QPushButton     *_updateBtn, *_deleteBtn;
     QTableWidget    *_taskTable;
     QJsonArray      *_tasksJsonArray;
     TaskForm        *_updateForm;
-    QString         _fileNane;
 };
+

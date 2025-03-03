@@ -23,9 +23,14 @@ public:
     QString dataDescription() const;
     QString dataStatus() const;
 
-    void setTitleLine(QLineEdit *newTitleLine);
-    void setDescriptionText(QTextEdit *newDescriptionText);
-    void setButtonGroupStatus(QButtonGroup *newButtonGroupStatus);
+
+
+    QLineEdit *titleLine() const;
+    QLabel *alertTitleLabel() const;
+    QTextEdit *descriptionText() const;
+
+    QButtonGroup *buttonGroupStatus() const;
+
 
 private:
     QWidget* addQRadios(QStringList &values);

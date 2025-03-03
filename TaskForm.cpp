@@ -6,9 +6,10 @@ TaskForm::TaskForm(QWidget *parent)
     // INIT
     _formLayout = new QFormLayout(this);
     _titleLine = new QLineEdit(this);
-    _alertTitleLabel = new QLabel(tr("Title is require ;)"), this);
+
+    _alertTitleLabel = new QLabel(tr("Title is require :-("), this);
         _alertTitleLabel->setStyleSheet("QLabel {color : brown;}");
-    _confTitleLabel = new QLabel(tr(":)"), this);
+    _confTitleLabel = new QLabel(tr(":-)"), this);
         _confTitleLabel->setStyleSheet("QLabel {color : green;}");
         _confTitleLabel->hide();
     _descriptionText = new QTextEdit(this);
@@ -77,19 +78,25 @@ void TaskForm::onTitleLine_changed()
     }
 }
 
-void TaskForm::setButtonGroupStatus(QButtonGroup *newButtonGroupStatus)
+
+QButtonGroup *TaskForm::buttonGroupStatus() const
 {
-    _buttonGroupStatus = newButtonGroupStatus;
+    return _buttonGroupStatus;
 }
 
-void TaskForm::setDescriptionText(QTextEdit *newDescriptionText)
+QTextEdit *TaskForm::descriptionText() const
 {
-    _descriptionText = newDescriptionText;
+    return _descriptionText;
 }
 
-void TaskForm::setTitleLine(QLineEdit *newTitleLine)
+QLineEdit *TaskForm::titleLine() const
 {
-    _titleLine = newTitleLine;
+    return _titleLine;
+}
+
+QLabel *TaskForm::alertTitleLabel() const
+{
+    return _alertTitleLabel;
 }
 
 QString TaskForm::dataTitle() const
