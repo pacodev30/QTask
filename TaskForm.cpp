@@ -14,11 +14,11 @@ void TaskForm::initialize()
     _formLayout = new QFormLayout(this);
     _titleLine = new QLineEdit(this);
 
-    _alertTitleLabel = new QLabel(tr("Title is require :-("), this);
+    _alertTitleLabel = new QLabel(tr("Title is required :-("), this);
         _alertTitleLabel->setStyleSheet("QLabel {color : brown;}");
-    _confTitleLabel = new QLabel(":-)", this);
-        _confTitleLabel->setStyleSheet("QLabel {color : green;}");
-        _confTitleLabel->hide();
+    _confirmTitleLabel = new QLabel(":-)", this);
+        _confirmTitleLabel->setStyleSheet("QLabel {color : green;}");
+        _confirmTitleLabel->hide();
     _descriptionText = new QTextEdit(this);
     _statusList = {
         tr("Pending"),
@@ -33,7 +33,7 @@ void TaskForm::manageLayouts()
     setLayout(_formLayout);
         _formLayout->addRow(tr("title"), _titleLine);
         _formLayout->addWidget(_alertTitleLabel);
-        _formLayout->addWidget(_confTitleLabel);
+        _formLayout->addWidget(_confirmTitleLabel);
         _formLayout->addRow(tr("Description"), _descriptionText);
         _formLayout->addRow(tr("Status"), addQRadios(_statusList));
         _formLayout->addWidget(_submitBtn);
@@ -62,11 +62,11 @@ void TaskForm::onTitleLine_changed()
     if(_titleLine->text().isEmpty())
     {
         _alertTitleLabel->show();
-        _confTitleLabel->hide();
+        _confirmTitleLabel->hide();
     } else
     {
         _alertTitleLabel->hide();
-        _confTitleLabel->show();
+        _confirmTitleLabel->show();
     }
 }
 

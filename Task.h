@@ -1,5 +1,4 @@
 #pragma once
-
 #include <QTableWidget>
 #include <QWidget>
 #include <QPushButton>
@@ -17,16 +16,43 @@ class Task : public QWidget
 public:
     explicit Task(QWidget *parent = nullptr);
 
+    /**
+     * @brief taskTable
+     * @return
+     */
     QTableWidget *taskTable() const;
+
+    /**
+     * @brief setTaskTable
+     * @param newTaskTable
+     */
     void setTaskTable(QTableWidget *newTaskTable);
 
 private:
+    /**
+     * @brief initialize
+     */
     void initialize();
+
+    /**
+     * @brief manageLayouts
+     */
     void manageLayouts();
+
+    /**
+     * @brief manageConnects
+     */
     void manageConnects();
 
 private slots:
+    /**
+     * @brief onUpdateBtn_clicked
+     */
     void onUpdateBtn_clicked();
+
+    /**
+     * @brief onDeleteBtn_clicked
+     */
     void onDeleteBtn_clicked();
 
 private:
